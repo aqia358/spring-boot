@@ -1,7 +1,7 @@
 package com.swiftsnail.controler;
 
 import com.google.gson.Gson;
-import lombok.extern.apachecommons.CommonsLog;
+import com.youdao.quipu.kafka.producer.AtLeastOnceKafkaProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,22 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
-/**
- * Created by yaoxm on 2016/3/9.
- */
 @RestController
 @Slf4j
-@RequestMapping("/log")
-@CommonsLog
 public class DspController {
 
     protected AtLeastOnceKafkaProducer kafkaProducer = AtLeastOnceKafkaProducer.getInstance();
 
     String kafkaTopic = "facebook";
 
-    @RequestMapping("/collector")
+    @RequestMapping("/")
     String decodeImpr(HttpServletRequest request) {
         Map map = new HashMap();
         Enumeration paramNames = request.getParameterNames();
@@ -52,7 +46,7 @@ public class DspController {
     }
 
     @RequestMapping("/ping")
-    String ping(){
+    String ping() {
         return "pong";
     }
 

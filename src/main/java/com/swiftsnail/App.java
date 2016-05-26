@@ -1,6 +1,5 @@
 package com.swiftsnail;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -11,7 +10,6 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpStatus;
 
 /**
@@ -19,7 +17,7 @@ import org.springframework.http.HttpStatus;
  *
  */
 @Configuration
-@ComponentScan("com.swiftsnail, outfox")
+@ComponentScan("com.swiftsnail")
 @EnableAutoConfiguration
 public class App extends SpringBootServletInitializer implements EmbeddedServletContainerCustomizer
 {
